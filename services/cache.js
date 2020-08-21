@@ -59,3 +59,11 @@ mongoose.Query.prototype.exec = async function () {
 
   return result;
 };
+
+module.exports = {
+  // Delete all caches for given top level key
+  // Call this when created / updated resource
+  clearHash(hashKey) {
+    client.del(JSON.stringify(hashKey));
+  },
+};
